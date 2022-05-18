@@ -1,45 +1,69 @@
 from abc import ABCMeta, abstractmethod
 
-class Context():
-    "This is the object whose behavior will change"
-    @staticmethod
-    def strategy(strategy):
-        #The strategy is handled by the class passed in
-        return strategy()
+class GameCharacter():
+    "This is the context whose strategy will change"
+
+    def __init__(self, player="P"):
+        self.player = player
+        self.position = [0, 0]
+
+    def move(self, movement_strategy):
+        "The movement algorithm has been decided by the client"
+        movement_strategy(self.player, self.position)
 
 
-class IStrategy(metaclass=ABCMeta):
-    "A strategy Interface"
+class Strategy(metaclass=ABCMeta):
+    "A Concrete Strategy Interface for character movement"
+
     @staticmethod
     @abstractmethod
-    def __str__():
-        "Implement the __str__ dunder"
+    def __call__():
+        "Implementors must select the default method"
 
 
-class ConcreteStrategyA(IStrategy):
+class Walking(Strategy):
     "A Concrete Strategy Subclass"
-    def __str__(self):
-        return "I am ConcreteStrategyA"
+
+    @staticmethod
+    def walk(player, position):
+        "A walk algorithm"
+        position[0] += 1
+        print(f"{player} is walking. New position = {position}")
+    __call__ = walk
 
 
-class ConcreteStrategyB(IStrategy):
+class Running(Strategy):
     "A Concrete Strategy Subclass"
-    def __str__(self):
-        return "I am ConcreteStrategyB"
+
+    @staticmethod
+    def run(player, position):
+        "A run algorithm"
+        position[0] += 2
+        print(f"{player} is running. New position = {position}")
+    __call__ = run
 
 
-class ConcreteStrategyC(IStrategy):
+class Crawling(Strategy):
     "A Concrete Strategy Subclass"
-    def __str__(self):
-        return "I am ConcreteStrategyC"
+
+    @staticmethod
+    def crawl(player, position):
+        "A crawl algorithm"
+        position[0] += 0.5
+        print(f"{player} is crawling. New position = {position}")
+    __call__ = crawl
 
 
 def main():
     # The Client
-    c = Context()
-    print(c.strategy(ConcreteStrategyA))
-    print(c.strategy(ConcreteStrategyB))
-    print(c.strategy(ConcreteStrategyC))
+    player = GameCharacter("Lia")
+    player.move(Walking())
+
+    # Character sees the enemy
+    player.move(Running())
+
+    # Character finds a small cave to hide in
+    player.move(Crawling())
 
 
 if __name__ == '__main__':
