@@ -1,13 +1,13 @@
 # Changing the strategy among Rock, Paper, Scissors, and Random
 
 import random
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod, ABCMeta
 
 # Strategy interface
-class Strategy(ABC):
+class Strategy(metaclass=ABCMeta):
     @abstractmethod
     def selection(self) -> None:
-        pass
+        return hasattr()
 
 
 # Concrete strategies
