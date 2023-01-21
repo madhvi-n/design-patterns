@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
+
 class GameCharacter():
     "This is the context whose strategy will change"
 
