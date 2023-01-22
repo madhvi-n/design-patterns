@@ -1,11 +1,11 @@
 # Design Patterns in Python
-
 ***
 
 
 ## Behavioral Patterns
 - Strategy
 - Observer
+- Mediator
 - Command
 - State
 - Template
@@ -16,8 +16,8 @@
 - Abstract
 - Abstract factory
 - Builder
-<!-- - Prototype -->
 - Singleton
+<!-- - Prototype -->
 
 
 ## Structural Patterns
