@@ -1,6 +1,5 @@
 # Design Patterns in Python
-***
-
+This repository serves as a comprehensive resource for understanding and implementing various design patterns using Python
 
 ## Behavioral Patterns
 - Strategy
@@ -36,14 +35,11 @@
     - [Design Patterns in Python by SBCODE]('https://www.youtube.com/playlist?list=PLKWUX7aMnlEJzRvCXnwFEdk_WJDNjMDOo')
     - [Design Pattern in Python]('https://sbcode.net/python/)
 
-  <br>
-
   - ### Books
     - Head First Design Patterns
     - Expert Programming in Python
     - Python Design Patterns
 
-  <br>
 
   - ### Additional readings
     - [Static vs Class vs Abstract methods]('https://medium.com/nerd-for-tech/python-instance-vs-static-vs-class-vs-abstract-methods-1952a5c77d9d)
